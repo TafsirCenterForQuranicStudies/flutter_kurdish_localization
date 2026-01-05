@@ -12,11 +12,12 @@ class _KurdishMaterialLocalizationsDelegate
   const _KurdishMaterialLocalizationsDelegate();
 
   @override
-  bool isSupported(Locale locale) => locale.languageCode == 'ku';
+  bool isSupported(Locale locale) =>
+      locale.languageCode == 'ku' || locale.languageCode == 'ckb';
 
   @override
   Future<MaterialLocalizations> load(Locale locale) async {
-    const String localeName = 'ku';
+    const localeName = 'ku';
 
     date_symbol_data_custom.initializeDateFormattingCustom(
       locale: localeName,
@@ -50,32 +51,22 @@ class _KurdishMaterialLocalizationsDelegate
 
 class KurdishMaterialLocalizations extends GlobalMaterialLocalizations {
   const KurdishMaterialLocalizations({
-    String localeName = 'ku',
-    required intl.DateFormat fullYearFormat,
-    required intl.DateFormat shortDateFormat,
-    required intl.DateFormat compactDateFormat,
-    required intl.DateFormat shortMonthDayFormat,
-    required intl.DateFormat mediumDateFormat,
-    required intl.DateFormat longDateFormat,
-    required intl.DateFormat yearMonthFormat,
-    required intl.NumberFormat decimalFormat,
-    required intl.NumberFormat twoDigitZeroPaddedFormat,
-  }) : super(
-            localeName: localeName,
-            shortDateFormat: shortDateFormat,
-            compactDateFormat: compactDateFormat,
-            shortMonthDayFormat: shortMonthDayFormat,
-            fullYearFormat: fullYearFormat,
-            mediumDateFormat: mediumDateFormat,
-            longDateFormat: longDateFormat,
-            yearMonthFormat: yearMonthFormat,
-            decimalFormat: decimalFormat,
-            twoDigitZeroPaddedFormat: twoDigitZeroPaddedFormat);
+    required super.fullYearFormat,
+    required super.shortDateFormat,
+    required super.compactDateFormat,
+    required super.shortMonthDayFormat,
+    required super.mediumDateFormat,
+    required super.longDateFormat,
+    required super.yearMonthFormat,
+    required super.decimalFormat,
+    required super.twoDigitZeroPaddedFormat,
+    super.localeName = 'ku',
+  });
   static const LocalizationsDelegate<MaterialLocalizations> delegate =
       _KurdishMaterialLocalizationsDelegate();
 
   @override
-  String get aboutListTileTitleRaw => 'دەربارەی \$applicationName';
+  String get aboutListTileTitleRaw => r'دەربارەی $applicationName';
 
   @override
   String get alertDialogLabel => 'ئاگادارکردنەوە';
@@ -123,7 +114,7 @@ class KurdishMaterialLocalizations extends GlobalMaterialLocalizations {
   String get datePickerHelpText => 'بەروار دیاری بکە';
 
   @override
-  String get dateRangeEndDateSemanticLabelRaw => 'بەرواری کۆتایی \$fullDate';
+  String get dateRangeEndDateSemanticLabelRaw => r'بەرواری کۆتایی $fullDate';
 
   @override
   String get dateRangeEndLabel => 'بەرواری کۆتایی';
@@ -132,8 +123,7 @@ class KurdishMaterialLocalizations extends GlobalMaterialLocalizations {
   String get dateRangePickerHelpText => 'دەست نیشانکردنی مەودا';
 
   @override
-  String get dateRangeStartDateSemanticLabelRaw =>
-      'بەرواری دەستپێکردن \$fullDate';
+  String get dateRangeStartDateSemanticLabelRaw => r'بەرواری دەستپێکردن $fullDate';
 
   @override
   String get dateRangeStartLabel => 'بەرواری دەستپێکردن';
@@ -178,7 +168,7 @@ class KurdishMaterialLocalizations extends GlobalMaterialLocalizations {
   String get licensesPackageDetailTextOne => '١ مۆڵەت';
 
   @override
-  String get licensesPackageDetailTextOther => '\$licenseCount مۆڵەت';
+  String get licensesPackageDetailTextOther => r'$licenseCount مۆڵەت';
 
   @override
   String get licensesPackageDetailTextZero => 'مۆڵەت نیە';
@@ -205,11 +195,10 @@ class KurdishMaterialLocalizations extends GlobalMaterialLocalizations {
   String get openAppDrawerTooltip => 'کردنەوەی لیستی ڕێنیشاندەر';
 
   @override
-  String get pageRowsInfoTitleRaw => '\$firstRow–\$lastRow لە \$rowCount';
+  String get pageRowsInfoTitleRaw => r'$firstRow–$lastRow لە $rowCount';
 
   @override
-  String get pageRowsInfoTitleApproximateRaw =>
-      '\$firstRow–\$lastRow تا \$rowCount';
+  String get pageRowsInfoTitleApproximateRaw => r'$firstRow–$lastRow تا $rowCount';
 
   @override
   String get pasteButtonLabel => 'پەیست';
@@ -242,8 +231,7 @@ class KurdishMaterialLocalizations extends GlobalMaterialLocalizations {
   String get remainingTextFieldCharacterCountOne => '١ پیت ماوە';
 
   @override
-  String get remainingTextFieldCharacterCountOther =>
-      '\$remainingCount پیتەکان ماون';
+  String get remainingTextFieldCharacterCountOther => r'$remainingCount پیتەکان ماون';
 
   @override
   String? get remainingTextFieldCharacterCountTwo => null;
@@ -297,7 +285,7 @@ class KurdishMaterialLocalizations extends GlobalMaterialLocalizations {
   String get selectedRowCountTitleOne => '١ دانە هەڵبژێردرا';
 
   @override
-  String get selectedRowCountTitleOther => '\$selectedRowCount هەڵبژێردراو';
+  String get selectedRowCountTitleOther => r'$selectedRowCount هەڵبژێردراو';
 
   @override
   String? get selectedRowCountTitleTwo => null;
@@ -315,7 +303,7 @@ class KurdishMaterialLocalizations extends GlobalMaterialLocalizations {
   String get signedInLabel => 'چوونە ژوورەوە';
 
   @override
-  String get tabLabelRaw => 'خشتەبەندی \$tabIndex لە \$tabCount';
+  String get tabLabelRaw => r'خشتەبەندی $tabIndex لە $tabCount';
 
   @override
   TimeOfDayFormat get timeOfDayFormatRaw => TimeOfDayFormat.h_colon_mm_space_a;
@@ -573,7 +561,7 @@ class KurdishMaterialLocalizations extends GlobalMaterialLocalizations {
   String get selectedDateLabel => "";
 }
 
-const kuDateSymbols = {
+const Map<String, Object?> kuDateSymbols = <String, Object?>{
   'NAME': 'ku',
   'ERAS': ['پ.ز', 'ز'],
   'ERANAMES': ['پێش زاینی', 'زاینی'],
@@ -726,7 +714,7 @@ const kuDateSymbols = {
   'WEEKENDRANGE': [4, 5],
   'FIRSTWEEKCUTOFFDAY': 3
 };
-const kuLocaleDatePatterns = {
+const Map<String, String> kuLocaleDatePatterns = <String, String>{
   'd': 'd', // DAY
   'E': 'ccc', // ABBR_WEEKDAY
   'EEEE': 'cccc', // WEEKDAY

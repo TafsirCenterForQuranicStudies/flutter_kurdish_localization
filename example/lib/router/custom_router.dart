@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_kurdish_localization_example/router/route_constants.dart';
 import 'package:flutter_kurdish_localization_example/screens/home_page.dart';
 import 'package:flutter_kurdish_localization_example/screens/landing.dart';
-import 'package:flutter_kurdish_localization_example/router/route_constants.dart';
 
 class CustomRouter {
   static Route<dynamic> generatedRoute(RouteSettings settings) {

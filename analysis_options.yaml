@@ -1,4 +1,26 @@
-include: package:flutter_lints/flutter.yaml
+include: package:very_good_analysis/analysis_options.yaml
 
-# Additional information about this file can be found at
-# https://dart.dev/guides/language/analysis-options
+analyzer:
+ errors:
+   avoid_dynamic_calls: ignore
+   avoid_setters_without_getters: ignore
+   constant_identifier_names: ignore
+   invalid_annotation_target: ignore
+   invalid_use_of_protected_member: ignore
+   invalid_use_of_visible_for_testing_member: ignore
+   lines_longer_than_80_chars: ignore
+   must_be_immutable: ignore
+   non_constant_identifier_names: ignore
+   one_member_abstracts: ignore
+   prefer_if_elements_to_conditional_expressions: ignore
+   prefer_single_quotes: ignore
+   public_member_api_docs: ignore
+
+ plugins:
+   - drift
+
+ exclude:
+   - "*/**.g.dart"
+   - "*/**.config.dart"
+   - "*/**.freezed.dart"
+   - "*/**_model.dart"

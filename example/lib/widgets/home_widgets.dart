@@ -4,13 +4,13 @@ import 'package:flutter_kurdish_localization_example/util/constants.dart';
 import 'package:flutter_kurdish_localization_example/util/custom_container.dart';
 
 class HomeWidgets extends StatefulWidget {
-  const HomeWidgets({Key? key}) : super(key: key);
+  const HomeWidgets({super.key});
 
   @override
-  _HomeWidgetsState createState() => _HomeWidgetsState();
+  State<HomeWidgets> createState() => HomeWidgetsState();
 }
 
-class _HomeWidgetsState extends State<HomeWidgets> {
+class HomeWidgetsState extends State<HomeWidgets> {
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
 
   void _showSuccessDialog() {
@@ -29,9 +29,7 @@ class _HomeWidgetsState extends State<HomeWidgets> {
             curve: Curves.easeInBack,
             style: FlutterLogoStyle.stacked,
           ),
-          const Divider(
-            height: 40,
-          ),
+          const Divider(height: 40),
           //! text form field
           Form(
             key: _key,
@@ -41,7 +39,7 @@ class _HomeWidgetsState extends State<HomeWidgets> {
                   child: Column(
                     children: [
                       const Text(
-                        "Text Form Field",
+                        'Text Form Field',
                         style: TextStyle(color: primaryColor),
                       ),
                       const SizedBox(height: 20),
@@ -136,7 +134,7 @@ class _HomeWidgetsState extends State<HomeWidgets> {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

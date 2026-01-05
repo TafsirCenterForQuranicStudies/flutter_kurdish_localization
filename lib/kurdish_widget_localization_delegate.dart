@@ -1,15 +1,15 @@
 import 'dart:async';
 
-import 'package:flutter/widgets.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class _KurdishMaterialLocalizationsDelegate
     extends LocalizationsDelegate<WidgetsLocalizations> {
   const _KurdishMaterialLocalizationsDelegate();
 
   @override
-  bool isSupported(Locale locale) => locale.languageCode == 'ku';
+  bool isSupported(Locale locale) =>
+      locale.languageCode == 'ku' || locale.languageCode == 'ckb';
 
   @override
   Future<WidgetsLocalizations> load(Locale locale) async {
@@ -30,20 +30,41 @@ class KurdishWidgetLocalizations extends WidgetsLocalizations {
   TextDirection get textDirection => TextDirection.rtl;
 
   @override
-  String get reorderItemDown => throw UnimplementedError();
+  String get reorderItemDown => 'بەرەو خوارەوە بگوازەوە';
 
   @override
-  String get reorderItemLeft => throw UnimplementedError();
+  String get reorderItemLeft => 'بەرەو چەپ بگوازەوە';
 
   @override
-  String get reorderItemRight => throw UnimplementedError();
+  String get reorderItemRight => 'بەرەو ڕاست بگوازەوە';
 
   @override
-  String get reorderItemToEnd => throw UnimplementedError();
+  String get reorderItemToEnd => 'بگوازەوە بۆ کۆتایی';
 
   @override
-  String get reorderItemToStart => throw UnimplementedError();
+  String get reorderItemToStart => 'بگوازەوە بۆ سەرەتا';
 
   @override
-  String get reorderItemUp => throw UnimplementedError();
+  String get reorderItemUp => 'بەرەو سەرەوە بگوازەوە';
+
+  @override
+  String get copyButtonLabel => 'کۆپی';
+
+  @override
+  String get cutButtonLabel => 'بڕین';
+
+  @override
+  String get pasteButtonLabel => 'پەیست';
+
+  @override
+  String get selectAllButtonLabel => 'دیاریکردنی هەموو';
+
+  @override
+  String get lookUpButtonLabel => 'بە دوادا گەڕان';
+
+  @override
+  String get searchWebButtonLabel => 'گەڕان لە وێب';
+
+  @override
+  String get shareButtonLabel => 'هاوبەشکردن';
 }

@@ -10,14 +10,14 @@ const String kurdish = 'ckb';
 const String arabic = 'ar';
 
 Future<Locale> setLocale(String languageCode) async {
-  SharedPreferences _prefs = await SharedPreferences.getInstance();
-  await _prefs.setString(langCode, languageCode);
+  final prefs = await SharedPreferences.getInstance();
+  await prefs.setString(langCode, languageCode);
   return _locale(languageCode);
 }
 
 Future<Locale> getLocale() async {
-  SharedPreferences _prefs = await SharedPreferences.getInstance();
-  String languageCode = _prefs.getString(langCode) ?? "en";
+  final prefs = await SharedPreferences.getInstance();
+  final languageCode = prefs.getString(langCode) ?? "en";
   return _locale(languageCode);
 }
 

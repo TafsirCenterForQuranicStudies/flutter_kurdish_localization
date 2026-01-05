@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
 class CustomContainer extends StatelessWidget {
-  const CustomContainer({Key? key, this.child, this.margin, this.padding, this.alignment})
-      : super(key: key);
+  const CustomContainer({
+    super.key,
+    this.child,
+    this.margin,
+    this.padding,
+    this.alignment,
+  });
+
   final Widget? child;
   final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry? padding;
@@ -14,13 +20,14 @@ class CustomContainer extends StatelessWidget {
       alignment: alignment,
       width: double.infinity,
       margin: margin ?? const EdgeInsets.all(10),
-      padding: padding ??
+      padding:
+          padding ??
           const EdgeInsets.only(bottom: 10, top: 10, left: 10, right: 10),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: Colors.white70,
-          border:
-              Border.all(color: Colors.grey[300]!, style: BorderStyle.solid)),
+        borderRadius: BorderRadius.circular(10),
+        color: Colors.white70,
+        border: Border.all(color: Colors.grey[300]!),
+      ),
       child: child,
     );
   }

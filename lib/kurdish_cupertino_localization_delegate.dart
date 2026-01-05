@@ -64,7 +64,7 @@ const kurdishLocaleDatePatterns = {
 /// These are not accurate and are just a clone of the date symbols for the
 /// `no` locale to demonstrate how one would write and use custom date symbols.
 // #docregion Date2
-const kuDateSymbols2 = {
+const Map<String, Object?> kuDateSymbols2 = <String, Object?>{
   'NAME': 'ku',
   'ERAS': ['پ.ز', 'ز'],
   'ERANAMES': ['پێش زاینی', 'زاینی'],
@@ -224,11 +224,14 @@ class KurdishCupertinoLocalizationsDelegate
   const KurdishCupertinoLocalizationsDelegate();
 
   @override
-  bool isSupported(Locale locale) => locale.languageCode == 'ku';
+  bool isSupported(Locale locale) =>
+      locale.languageCode == 'ku' || locale.languageCode == 'ckb';
 
   @override
   Future<CupertinoLocalizations> load(Locale locale) async {
-    final String localeName = intl.Intl.canonicalizedLocale(locale.toString());
+    final localeName = locale.languageCode == 'ckb'
+        ? 'ku'
+        : intl.Intl.canonicalizedLocale(locale.toString());
     // The locale (in this case `nn`) needs to be initialized into the custom
     // date symbols and patterns setup that Flutter uses.
     date_symbol_data_custom.initializeDateFormattingCustom(
@@ -253,6 +256,7 @@ class KurdishCupertinoLocalizationsDelegate
         // DateFormat symbols, similar to NumberFormat above.
         fullYearFormat: intl.DateFormat('y', localeName),
         dayFormat: intl.DateFormat('yMd', localeName),
+        weekdayFormat: intl.DateFormat('EEE', localeName),
         doubleDigitMinuteFormat: intl.DateFormat('yMMMd', localeName),
         mediumDateFormat: intl.DateFormat('EEE, MMM d', localeName),
         singleDigitHourFormat: intl.DateFormat('EEEE, MMMM d, y', localeName),
@@ -273,44 +277,69 @@ class KurdishCupertinoLocalizationsDelegate
 /// and formatting.
 class KurdishCupertinoLocalizations extends GlobalCupertinoLocalizations {
   const KurdishCupertinoLocalizations({
-    super.localeName = 'ku',
     required super.fullYearFormat,
     required super.mediumDateFormat,
     required super.decimalFormat,
     required super.dayFormat,
+    required super.weekdayFormat,
     required super.doubleDigitMinuteFormat,
     required super.singleDigitHourFormat,
     required super.singleDigitMinuteFormat,
     required super.singleDigitSecondFormat,
+    super.localeName = 'ku',
   });
 
 // #docregion Getters
 
   @override
-  String get alertDialogLabel => r'ئاگادارکردنەوە';
+  String get alertDialogLabel => 'ئاگادارکردنەوە';
 
 // #enddocregion Getters
 
   @override
-  String get anteMeridiemAbbreviation => r'پ.ن';
+  String get cancelButtonLabel => 'هەڵوەشاندنەوە';
 
   @override
-  String get copyButtonLabel => r'کۆپی';
+  String get backButtonLabel => 'گەڕانەوە';
 
   @override
-  String get cutButtonLabel => r'بڕین';
+  String get expandedHint => 'کراوە';
 
   @override
-  String get modalBarrierDismissLabel => r'لادان';
+  String get collapsedHint => 'داخراو';
 
   @override
-  String get pasteButtonLabel => r'پەیست';
+  String get expansionTileExpandedHint => 'دووجار دەست لێبدە بۆ داخستنی';
 
   @override
-  String get postMeridiemAbbreviation => r'د.ن';
+  String get expansionTileCollapsedHint => 'دووجار دەست لێبدە بۆ کردنەوە';
 
   @override
-  String get selectAllButtonLabel => r'دیاریکردنی هەموو';
+  String get expansionTileExpandedTapHint => 'داخستن';
+
+  @override
+  String get expansionTileCollapsedTapHint => 'کردنەوە بۆ وردەکاری زیاتر';
+
+  @override
+  String get anteMeridiemAbbreviation => 'پ.ن';
+
+  @override
+  String get copyButtonLabel => 'کۆپی';
+
+  @override
+  String get cutButtonLabel => 'بڕین';
+
+  @override
+  String get modalBarrierDismissLabel => 'لادان';
+
+  @override
+  String get pasteButtonLabel => 'پەیست';
+
+  @override
+  String get postMeridiemAbbreviation => 'د.ن';
+
+  @override
+  String get selectAllButtonLabel => 'دیاریکردنی هەموو';
 
   static const LocalizationsDelegate<CupertinoLocalizations> delegate =
       KurdishCupertinoLocalizationsDelegate();

@@ -14,11 +14,13 @@ class DemoLocalization {
   Map<String, String>? _localizedValues;
 
   Future<void> load() async {
-    String jsonStringValues =
-        await rootBundle.loadString('lib/lang/${locale!.languageCode}.json');
-    Map<String, dynamic> mappedJson = json.decode(jsonStringValues);
-    _localizedValues =
-        mappedJson.map((key, value) => MapEntry(key, value.toString()));
+    final jsonStringValues = await rootBundle.loadString(
+      'lib/lang/${locale!.languageCode}.json',
+    );
+    final mappedJson = json.decode(jsonStringValues) as Map<String, dynamic>;
+    _localizedValues = mappedJson.map(
+      (key, value) => MapEntry(key, value.toString()),
+    );
   }
 
   String translate(String key) {
@@ -40,7 +42,7 @@ class _DemoLocalizationsDelegate
 
   @override
   Future<DemoLocalization> load(Locale locale) async {
-    DemoLocalization localization =  DemoLocalization(locale);
+    final localization = DemoLocalization(locale);
     await localization.load();
     return localization;
   }
